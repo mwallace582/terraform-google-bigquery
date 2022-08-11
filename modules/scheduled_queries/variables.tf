@@ -14,18 +14,12 @@
  * limitations under the License.
  */
 
-terraform {
-  required_version = ">= 0.13"
-  required_providers {
+variable "project_id" {
+  description = "The project where scheduled queries are created"
+  type        = string
+}
 
-    google = {
-      source  = "hashicorp/google"
-      version = ">= 3.53, < 5.0"
-    }
-  }
-
-  provider_meta "google" {
-    module_name = "blueprints/terraform/terraform-google-bigquery:udf/v5.4.1"
-  }
-
+variable "queries" {
+  description = "Data transfer configuration for creating scheduled queries"
+  type        = list(any)
 }

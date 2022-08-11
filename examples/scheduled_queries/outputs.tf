@@ -14,18 +14,7 @@
  * limitations under the License.
  */
 
-terraform {
-  required_version = ">= 0.13"
-  required_providers {
-
-    google = {
-      source  = "hashicorp/google"
-      version = ">= 3.53, < 5.0"
-    }
-  }
-
-  provider_meta "google" {
-    module_name = "blueprints/terraform/terraform-google-bigquery:udf/v5.4.1"
-  }
-
+output "query_names" {
+  value       = module.scheduled_queries.query_names
+  description = "The resource names of the transfer config"
 }
